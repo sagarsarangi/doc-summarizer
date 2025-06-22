@@ -6,12 +6,7 @@ export const supabase = createClient(
   {
     auth: {
       persistSession: true,
-      autoRefreshToken: true,
-      storage: {
-        getItem: (key) => window.localStorage.getItem(key),
-        setItem: (key, value) => window.localStorage.setItem(key, value),
-        removeItem: (key) => window.localStorage.removeItem(key),
-      },
+      storage: window.localStorage, // ✅ use browser's built-in adapter
     },
   }
 );

@@ -31,17 +31,24 @@ export default function LandingPage() {
   
 
   const handleLogout = async () => {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+
+    console.log("🧠 Session before logout:", session);
+
     const { error } = await supabase.auth.signOut({ scope: "local" });
 
     if (error) {
       console.error("Logout failed:", error.message);
       alert("Logout failed: " + error.message);
     } else {
-      console.log("✅ Logged out");
       setUser(null);
-      navigate("/"); // Or reload window
+      navigate("/");
     }
   };
+  
+  
   
 
   const handleContinue = () => {
