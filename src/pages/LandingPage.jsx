@@ -33,17 +33,14 @@ export default function LandingPage() {
   const handleLogout = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) {
-      console.error("Logout failed:", error); // ← full object
-      alert("Logout failed: " + error.message);
+      console.error("Logout failed:", error.message);
+      alert("Logout failed");
     } else {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
-
-      console.log("Session after logout:", session); // Should be null
       setUser(null);
+      navigate("/"); // Optionally, redirect
     }
   };
+  
   
 
   const handleContinue = () => {
