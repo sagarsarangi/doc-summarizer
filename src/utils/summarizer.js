@@ -85,8 +85,7 @@ ERROR PREVENTION:
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization:
-          "Bearer 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",
+        Authorization: `Bearer ${import.meta.env.VITE_OPENROUTER_API_KEY}`,
       },
       body: JSON.stringify(payload),
     }
