@@ -1,7 +1,7 @@
 // App.jsx
 import { Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import Dashboard from "./pages/dashboard";
+import Dashboard from "./pages/Dashboard";
 import SignUp from "./pages/signup";
 import Login from "./pages/login";
 import ResetPassword from "./pages/ResetPassword";
@@ -19,7 +19,7 @@ function App() {
           </ProtectedRoute>
         }
       />
-      <Route path="/dashboard" element={<Dashboard />} />
+      
       <Route path="/signup" element={<SignUp />} />
       <Route path="/login" element={<Login />} />
       <Route path="/reset-password" element={<ResetPassword />} />
