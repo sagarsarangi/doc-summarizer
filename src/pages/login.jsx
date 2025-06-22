@@ -14,7 +14,7 @@ export default function Login() {
     }
 
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: "http://localhost:5173/reset-password", // ⚠️ Change this for production
+      redirectTo: "https://doc-summarizer-plum.vercel.app/reset-password", // ⚠️ Change this for production
     });
 
     if (error) {
