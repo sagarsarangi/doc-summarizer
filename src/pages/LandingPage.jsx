@@ -83,6 +83,29 @@ export default function LandingPage() {
           </button>
         </div>
       )}
+      {/* Browser Compatibility Notice */}
+      <div className="bg-amber-900/30 border border-amber-600/50 rounded-lg mx-6 mt-4 p-4">
+        <div className="flex items-center gap-3">
+          <svg
+            className="w-5 h-5 text-amber-400 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"
+            />
+          </svg>
+          <p className="text-amber-200 text-sm">
+            <strong>Browser Notice:</strong> The logout function currently works
+            best on Chrome. Other browsers may experience issues. Please bear
+            with us while we work on compatibility.
+          </p>
+        </div>
+      </div>
 
       {/* Main container */}
       <div className="flex items-center justify-center p-4 min-h-[calc(100vh-64px)]">
@@ -117,9 +140,7 @@ export default function LandingPage() {
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-800"></div>
             </div>
-            <div className="relative inline-flex justify-center bg-gray-950 px-4 text-gray-500">
-             
-            </div>
+            <div className="relative inline-flex justify-center bg-gray-950 px-4 text-gray-500"></div>
           </div>
 
           <button
