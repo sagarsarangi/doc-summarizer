@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../utils/supabaseClient";
+import GoogleAuthButton from "../components/GoogleAuthButton"; 
 
 export default function LandingPage() {
   const [user, setUser] = useState(null);
@@ -83,32 +84,11 @@ export default function LandingPage() {
           </button>
         </div>
       )}
-      {/* Browser Compatibility Notice */}
-      <div className="bg-amber-900/30 border border-amber-600/50 rounded-lg mx-6 mt-4 p-4">
-        <div className="flex items-center justify-center gap-3">
-          <svg
-            className="w-5 h-5 text-amber-400 flex-shrink-0"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"
-            />
-          </svg>
-          <p className="text-amber-200 text-sm">
-            <strong>Browser Notice:</strong> The logout function currently works
-            best on Chrome. Other browsers may experience issues. Please bear
-            with us while we work on compatibility.
-          </p>
-        </div>
-      </div>
+      
+     
 
       {/* Main container */}
-      <div className="flex items-center justify-center p-4 min-h-[calc(100vh-64px)]">
+      <div className="flex items-center justify-center p-4 min-h-[calc(100vh)]">
         <div className="w-full max-w-6xl mx-auto text-center">
           <div className="mb-12">
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent">
@@ -120,19 +100,26 @@ export default function LandingPage() {
           </div>
 
           {!user && (
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <button
-                onClick={() => navigate("/signup")}
-                className="px-8 py-4 bg-transparent text-white border border-gray-600 rounded-lg hover:border-gray-400 hover:bg-gray-900/50 transition-all duration-300 text-lg font-medium"
-              >
-                Sign Up
-              </button>
-              <button
-                onClick={() => navigate("/login")}
-                className="px-8 py-4 bg-transparent text-white border border-gray-600 rounded-lg hover:border-gray-400 hover:bg-gray-900/50 transition-all duration-300 text-lg font-medium"
-              >
-                Login
-              </button>
+            <div className="flex flex-col gap-4 justify-center items-center mb-12">
+              <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
+                <button
+                  onClick={() => navigate("/signup")}
+                  className="w-full px-8 py-4 bg-transparent text-white border border-gray-600 rounded-lg hover:border-gray-400 hover:bg-gray-900/50 transition-all duration-300 text-lg font-medium"
+                >
+                  Sign Up
+                </button>
+                <button
+                  onClick={() => navigate("/login")}
+                  className="w-full px-8 py-4 bg-transparent text-white border border-gray-600 rounded-lg hover:border-gray-400 hover:bg-gray-900/50 transition-all duration-300 text-lg font-medium"
+                >
+                  Login
+                </button>
+              </div>
+
+              {/* Google button below login/signup */}
+              <div className="w-full max-w-md ">
+                <GoogleAuthButton  />
+              </div>
             </div>
           )}
 
