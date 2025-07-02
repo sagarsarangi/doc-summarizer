@@ -129,18 +129,9 @@ export default function Dashboard() {
 
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-gray-900 to-black overflow-hidden">
-      {/* Header */}
-      <div className="text-center py-6 border-b border-gray-700/50">
-        <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-2">
-          DASHBOARD
-        </h2>
-        <p className="text-gray-400 text-base">
-          Transform your content into concise summaries
-        </p>
-      </div>
 
       {/* Main Grid Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 h-[calc(100vh-120px)] gap-6 p-6 overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-2 h-[calc(100vh)] gap-6 p-6 overflow-hidden">
         {/* Left Panel - Input Controls */}
         <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 shadow-2xl flex flex-col overflow-hidden">
           <h3 className="text-xl font-semibold text-white mb-6 border-b border-gray-700/50 pb-3">
@@ -159,7 +150,7 @@ export default function Dashboard() {
                   value={focusArea}
                   onChange={(e) => setFocusArea(e.target.value)}
                   className="w-full bg-gray-800/70 border border-gray-600/50 text-white px-4 py-3 rounded-xl 
-                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
+                  focus:outline-none focus:ring-0 focus:ring-blue-500 focus:border-blue-500 
                   transition-all duration-200 appearance-none cursor-pointer
                   hover:bg-gray-700/70 hover:border-gray-500/70
                   backdrop-blur-sm shadow-lg"
@@ -242,7 +233,7 @@ export default function Dashboard() {
                 value={customGuidelines}
                 onChange={(e) => setCustomGuidelines(e.target.value)}
                 rows="4"
-                className="w-full bg-gray-700/30 border border-gray-600 text-white px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
+                className="w-full bg-gray-700/30 border border-gray-600 text-white px-4 py-3 rounded-xl focus:outline-none focus:ring-0 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none"
                 placeholder="Example: Use simpler language. Group by date. Add hashtags."
               />
             </div>
@@ -287,7 +278,7 @@ export default function Dashboard() {
                     value={textInput}
                     onChange={(e) => setTextInput(e.target.value)}
                     rows="8"
-                    className="w-full bg-gray-700/30 border border-gray-600 text-white px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
+                    className="w-full bg-gray-700/30 border border-gray-600 text-white px-4 py-3 rounded-xl focus:outline-none focus:ring-0 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none"
                     placeholder="Paste or type your text here..."
                   />
                 </div>
