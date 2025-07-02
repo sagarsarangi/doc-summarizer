@@ -18,14 +18,14 @@ export default function GoogleAuthButton() {
     <div className="w-full">
       <button
         onClick={handleGoogleLogin}
-        className="flex items-center justify-center gap-3 w-full py-3 px-4 rounded-md border border-border !bg-blue-600 hover:!bg-blue-700 transition-colors duration-200  "
+        className="flex items-center justify-center gap-3 w-full !py-4 px-4  border border-border !bg-blue-600 hover:!bg-blue-700 transition-colors duration-200 !rounded-3xl "
       >
         <img
           src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
           alt="Google logo"
           className="w-8 h-8 p-1 !bg-white"
         />
-        <span className="text-card-foreground font-medium">
+        <span className="text-card-foreground  text-xl font-medium ">
           Continue with Google
         </span>
       </button>

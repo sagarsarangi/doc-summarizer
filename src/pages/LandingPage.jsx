@@ -80,10 +80,10 @@ export default function LandingPage() {
       <div className="flex items-center justify-center p-4 min-h-[calc(100vh)]">
         <div className="w-full max-w-6xl mx-auto text-center">
           <div className="mb-12">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight bg-gradient-to-r from-gray-300 to-white bg-clip-text text-transparent">
+            <h1 className="text-9xl sm:text-5xl md:text-8xl lg:text-9xl font-bold tracking-tight bg-gradient-to-r from-gray-500 to-white bg-clip-text text-transparent">
               Smart Assistant
             </h1>
-            <p className="mt-6 text-lg sm:text-xl md:text-2xl text-gray-400 font-light max-w-3xl mx-auto">
+            <p className="mt-6 text-xl  text-white font-light max-w-3xl mx-auto">
               Your intelligent companion for text data and documents !
             </p>
           </div>
@@ -93,20 +93,21 @@ export default function LandingPage() {
               <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
                 <button
                   onClick={() => navigate("/signup")}
-                  className="w-full px-8 py-4 bg-transparent text-white border border-gray-600 rounded-lg hover:border-gray-400 hover:bg-gray-900/50 transition-all duration-300 text-lg font-medium"
+                  className="w-full px-8 py-4  border-gray-600 !text-xl  hover:border-gray-400 transition-all duration-300  font-medium !rounded-3xl
+                  !bg-orange-400 hover:!bg-orange-600"
                 >
                   Sign Up
                 </button>
                 <button
                   onClick={() => navigate("/login")}
-                  className="w-full px-8 py-4 bg-transparent text-white border border-gray-600 rounded-lg hover:border-gray-400 hover:bg-gray-900/50 transition-all duration-300 text-lg font-medium"
+                  className="w-full px-8 py-4 !bg-pink-500 text-white border border-gray-600 !rounded-3xl hover:border-gray-400 hover:!bg-pink-600 transition-all duration-300 !text-xl !font-large"
                 >
                   Login
                 </button>
               </div>
 
               {/* Google button below login/signup */}
-              <div className="w-full max-w-md ">
+              <div className="w-full max-w-md rounded-3xl">
                 <GoogleAuthButton />
               </div>
             </div>
