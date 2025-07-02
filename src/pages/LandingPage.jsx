@@ -57,7 +57,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-gray-950 to-black overflow-auto text-white">
+    <div className="fixed inset-0 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 overflow-auto text-white">
       {/* Header if user is logged in */}
       {user && (
         <div className="fixed top-5 left-1/2 transform -translate-x-1/2 w-full max-w-[25rem] px-6 py-4 bg-gray-900 border border-gray-700 rounded-xl z-50 h-20">
@@ -68,7 +68,7 @@ export default function LandingPage() {
             </div>
             <button
               onClick={handleLogout}
-              className="px-4 py-1 !bg-red-500 hover:!bg-red-500 rounded text-gray-100"
+              className="px-4 py-1 !bg-red-500 hover:!bg-red-500 rounded text-gray-100 hover:scale-106"
             >
               Logout
             </button>
@@ -80,7 +80,7 @@ export default function LandingPage() {
       <div className="flex items-center justify-center p-4 min-h-[calc(100vh)]">
         <div className="w-full max-w-6xl mx-auto text-center">
           <div className="mb-12">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight bg-gradient-to-r from-gray-300 to-white bg-clip-text text-transparent">
               Smart Assistant
             </h1>
             <p className="mt-6 text-lg sm:text-xl md:text-2xl text-gray-400 font-light max-w-3xl mx-auto">
@@ -121,7 +121,7 @@ export default function LandingPage() {
 
           <button
             onClick={handleContinue}
-            className="group px-12 py-4 bg-gray-900 hover:bg-gray-800 rounded-lg transition-all duration-300 text-lg font-medium inline-flex items-center gap-2"
+            className="group px-12 py-4 ease-in-out !bg-green-400 hover:scale-110 rounded-lg transition-all duration-300 text-lg font-medium inline-flex items-center gap-2 text-black"
           >
             Continue to App
             <svg
