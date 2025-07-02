@@ -1,0 +1,39 @@
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/App.jsx', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mindex 46afd4d..d823d0d 100644[m
+Binary files a/.gitignore and b/.gitignore differ
+[1mdiff --git a/src/App.jsx b/src/App.jsx[m
+[1mindex 45b3ec2..d287e73 100644[m
+[1m--- a/src/App.jsx[m
+[1m+++ b/src/App.jsx[m
+[36m@@ -19,7 +19,7 @@[m [mfunction App() {[m
+           </ProtectedRoute>[m
+         }[m
+       />[m
+[31m-      [m
+[32m+[m
+       <Route path="/signup" element={<SignUp />} />[m
+       <Route path="/login" element={<Login />} />[m
+       <Route path="/reset-password" element={<ResetPassword />} />[m
+[1mdiff --git a/src/pages/Dashboard.jsx b/src/pages/Dashboard.jsx[m
+[1mindex 9b02c6a..56ff182 100644[m
+[1m--- a/src/pages/Dashboard.jsx[m
+[1m+++ b/src/pages/Dashboard.jsx[m
+[36m@@ -130,7 +130,6 @@[m [mexport default function Dashboard() {[m
+ [m
+   return ([m
+     <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-gray-900 to-black overflow-hidden">[m
+[31m-[m
+       {/* Main Grid Layout */}[m
+       <div className="grid grid-cols-1 lg:grid-cols-2 h-[calc(100vh)] gap-6 p-6 overflow-hidden">[m
+         {/* Left Panel - Input Controls */}[m
+[36m@@ -410,7 +409,7 @@[m [mexport default function Dashboard() {[m
+         <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 shadow-2xl flex flex-col overflow-hidden pt-6">[m
+           <div className="flex justify-between items-center mb-6 border-b border-gray-700/50 pb-2">[m
+             <h3 className="text-xl font-semibold text-white">Summary Output</h3>[m
+[31m-            [m
+[32m+[m
+             {summary && ([m
+               <div className="flex items-center gap-3">[m
+                 {/* Copy Button */}[m

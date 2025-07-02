@@ -23,12 +23,13 @@ BEFORE RESPONDING: Ask yourself "Am I following the user's custom guidelines exa
   systemPrompt += `
 
 MAIN PRIORITY: ${focus} (this gets the most detailed coverage)
-SECONDARY PRIORITY: Everything else (if space/guidelines allow)
+SECONDARY PRIORITY: ${customGuidelines.trim() ? "Other important content based on custom guidelines" : "Other important content from the document"}
+TERTIARY PRIORITY: Everything else (if space/guidelines allow)
 
 MANDATORY PROCESS:
 1. First: Check if custom guidelines specify length limits - if yes, plan accordingly
 2. Scan document and identify all sections/topics
-3. Extract content related to ${focus} with priority
+3. Extract content related to ${focus} and ${customGuidelines.trim() ? "custom guidelines" : "other important content"} with priority
 4. Extract other important information based on remaining space/guidelines
 5. Create bullets for each distinct point
 6. Include important numbers, statistics, dates, names, facts
@@ -37,16 +38,19 @@ MANDATORY PROCESS:
 DEFAULT ORGANIZATION STRUCTURE (unless custom guidelines specify otherwise):
 
 FOCUS AREA: ${focus}
-• [Key details about ${focus}]
-• [Data and examples related to ${focus}]
+• [Key details about ${focus} and its relevance]
+• [Data and examples related to ${focus} from the document]
 
 OTHER IMPORTANT CONTENT:
 • [Main points from document]
 • [Supporting details and conclusions]
 
 FORMATTING RULES (unless custom guidelines override):
-• Use ONLY the bullet symbol • for content points
-• NEVER use dashes (-), asterisks (*), or bold formatting
+• Use ONLY the bullet symbol • at the beginning of each point
+• NEVER use asterisks (*), bold (**text**), or any Markdown formatting
+• Do NOT wrap words with * or ** under any circumstance
+• Do NOT use any other symbols or formatting styles
+• Keep each bullet point concise and focused
 • Write in plain text only
 • One main idea per bullet point
 
@@ -107,7 +111,10 @@ ERROR PREVENTION:
   console.log("🔍 API result:", result);
 
   if (result?.choices?.[0]?.message?.content) {
-    return result.choices[0].message.content.trim();
+    let summary = result.choices[0].message.content.trim();
+    summary = summary.replace(/\*{1,2}/g, ""); // removes * and **
+    return summary;
+
   } else {
     throw new Error("Summarization failed");
   }
