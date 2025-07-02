@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../utils/supabaseClient";
-import GoogleAuthButton from "../components/GoogleAuthButton"; 
+import GoogleAuthButton from "../components/GoogleAuthButton";
+import logo from "./b.png";
 
 export default function LandingPage() {
   const [user, setUser] = useState(null);
@@ -27,9 +28,7 @@ export default function LandingPage() {
     return () => {
       subscription?.unsubscribe(); // ✅ correct
     };
-    
   }, []);
-  
 
   const handleLogout = async () => {
     const {
@@ -48,9 +47,6 @@ export default function LandingPage() {
       navigate("/");
     }
   };
-  
-  
-  
 
   const handleContinue = () => {
     if (!user) {
@@ -59,33 +55,26 @@ export default function LandingPage() {
     }
     navigate("/dashboard");
   };
-  
 
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-gray-950 to-black overflow-auto text-white">
       {/* Header if user is logged in */}
       {user && (
-        <div className="flex items-center justify-between px-6 py-4 bg-gray-900 border-b border-gray-700">
-          <div className="flex items-center gap-2 text-gray-300">
-            <svg
-              className="w-5 h-5 text-emerald-400"
-              fill="currentColor"
-              viewBox="0 0 24 24"
+        <div className="fixed top-5 left-1/2 transform -translate-x-1/2 w-full max-w-[25rem] px-6 py-4 bg-gray-900 border border-gray-700 rounded-xl z-50 h-20">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2 text-gray-300">
+              <img src={logo} alt="Smart Assistant Logo" className="w-8 h-8" />
+              <span>{user.email}</span>
+            </div>
+            <button
+              onClick={handleLogout}
+              className="px-4 py-1 !bg-red-500 hover:!bg-red-500 rounded text-gray-100"
             >
-              <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-3.31 0-6 2.69-6 6v1h12v-1c0-3.31-2.69-6-6-6z" />
-            </svg>
-            <span>{user.email}</span>
+              Logout
+            </button>
           </div>
-          <button
-            onClick={handleLogout}
-            className="px-4 py-1 bg-red-600 hover:bg-red-500 rounded text-sm"
-          >
-            Logout
-          </button>
         </div>
       )}
-      
-     
 
       {/* Main container */}
       <div className="flex items-center justify-center p-4 min-h-[calc(100vh)]">
@@ -118,7 +107,7 @@ export default function LandingPage() {
 
               {/* Google button below login/signup */}
               <div className="w-full max-w-md ">
-                <GoogleAuthButton  />
+                <GoogleAuthButton />
               </div>
             </div>
           )}
