@@ -151,7 +151,7 @@ export default function LandingPage() {
 
   return (
     <div
-      className="fixed inset-0 bg-cover bg-center bg-no-repeat text-white overflow-hidden"
+      className="fixed inset-0 bg-cover bg-center bg-no-repeat text-white overflow-hidden px-2"
       style={{
         backgroundImage: `url(${bb})`, // ✅ correct
       }}
@@ -165,24 +165,26 @@ export default function LandingPage() {
       {/* Header if user is logged in */}
       {user && showContent && (
         <div
-          className="fixed top-5 left-1/2 transform -translate-x-1/2 px-7 py-4 
-               bg-black/60 backdrop-blur-md border border-cyan-400 rounded-xl 
-               shadow-2xl shadow-black/50 z-50 h-20 w-fit max-w-[95vw]"
+          className="fixed top-5 left-1/2 transform -translate-x-1/2 px-4 sm:px-6 py-4 
+        bg-black/60 backdrop-blur-md border border-cyan-400 rounded-xl 
+        shadow-2xl shadow-black/50 z-50 w-[95vw] [@media(min-width:500px)]:w-fit max-w-[100vw]"
         >
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-2 text-white whitespace-nowrap">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-white w-full">
+            <div className="flex items-center justify-center gap-2 flex-wrap text-center md:text-left">
               <img
                 src={profilePic}
                 onError={() => setProfilePic(logo)}
                 alt="User Profile"
                 className="w-8 h-8 rounded-full object-cover"
               />
-
-              <span className="text-lg">{user.email}</span>
+              <span className="text-sm sm:text-base break-all max-w-[80vw]">
+                {user.email}
+              </span>
             </div>
+
             <button
               onClick={handleLogout}
-              className="px-4 py-1 !bg-red-500 !hover:bg-red-600 transition-transform transform hover:scale-108 hover:!border-red-900 hover:!bg-red-600 rounded text-white"
+              className="px-4 py-2 bg-red-500 hover:bg-red-600 rounded text-white transition-all duration-200"
             >
               Logout
             </button>
