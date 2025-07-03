@@ -28,7 +28,7 @@ export default function SignUp() {
     if (error) {
       alert("Sign-up failed: " + error.message);
     } else {
-      alert("Check your email and verify before logging in.");
+      alert("Thank you for Signing up");
       navigate("/");
     }
   };

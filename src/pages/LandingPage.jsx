@@ -128,12 +128,12 @@ export default function LandingPage() {
       {/* Header if user is logged in */}
       {user && showContent && (
         <div
-          className="fixed top-5 left-1/2 transform -translate-x-1/2 w-full max-w-[25rem] px-6 py-4 
-                  bg-black/60 backdrop-blur-md border border-cyan-400 rounded-xl shadow-2xl shadow-black/50 
-                  z-50 h-20"
+          className="fixed top-5 left-1/2 transform -translate-x-1/2 px-7 py-4 
+               bg-black/60 backdrop-blur-md border border-cyan-400 rounded-xl 
+               shadow-2xl shadow-black/50 z-50 h-20 w-fit max-w-[95vw]"
         >
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-white">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-2 text-white whitespace-nowrap">
               <img src={logo} alt="Smart Assistant Logo" className="w-8 h-8" />
               <span className="text-lg">{user.email}</span>
             </div>
