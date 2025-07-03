@@ -165,7 +165,7 @@ export default function LandingPage() {
       {/* Header if user is logged in */}
       {user && showContent && (
         <div
-          className="fixed top-5 left-1/2 transform -translate-x-1/2 px-4 sm:px-6 py-4 
+          className="fixed top-3 left-1/2 transform -translate-x-1/2 px-4 sm:px-6 py-4 
         bg-black/60 backdrop-blur-md border border-cyan-400 rounded-xl 
         shadow-2xl shadow-black/50 z-50 w-[95vw] [@media(min-width:500px)]:w-fit max-w-[100vw]"
         >
@@ -245,7 +245,7 @@ export default function LandingPage() {
             {user && (
               <button
                 onClick={handleContinue}
-                className="group px-12 py-4 ease-in-out !bg-green-400 hover:scale-110 rounded-lg transition-all duration-300 text-lg font-medium inline-flex items-center gap-2 text-black"
+                className="group px-12 py-4 ease-in-out !bg-green-400 hover:scale-110 rounded-lg transition-all duration-300 !text-lg font-medium inline-flex items-center gap-2 text-black"
               >
                 Continue to App
                 <svg
