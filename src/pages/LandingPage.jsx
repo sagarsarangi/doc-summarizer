@@ -77,18 +77,23 @@ export default function LandingPage() {
 
       if (currentUser) {
         const provider = currentUser?.app_metadata?.provider;
-        const picture = currentUser?.user_metadata?.avatar_url;
+   
 
         console.log("Provider:", provider);
         console.log("Avatar URL:", currentUser?.user_metadata?.avatar_url);
         console.log("User metadata:", currentUser?.user_metadata);
 
 
-        if (provider === "google" && picture) {
-          setProfilePic(picture); // Use Google profile pic
-        } else {
-          setProfilePic(logo); // Use default (b.png)
+        if (currentUser) {
+          const picture = currentUser?.user_metadata?.avatar_url;
+
+          if (picture && picture.startsWith("http")) {
+            setProfilePic(picture); // Google avatar or others
+          } else {
+            setProfilePic(logo); // Default fallback
+          }
         }
+        
       }
     };
 
@@ -166,7 +171,13 @@ export default function LandingPage() {
         >
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-white whitespace-nowrap">
-              <img src={profilePic} alt="User Profile" className="w-8 h-8 rounded-full object-cover" />
+              <img
+                src={profilePic}
+                onError={() => setProfilePic(logo)}
+                alt="User Profile"
+                className="w-8 h-8 rounded-full object-cover"
+              />
+
               <span className="text-lg">{user.email}</span>
             </div>
             <button
