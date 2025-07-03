@@ -130,15 +130,17 @@ export default function Dashboard() {
   const isClearDisabled = summary.trim().length === 0;
 
   return (
-    <div className="fixed inset-0 bg-cover bg-center bg-no-repeat to-black overflow-hidden"
-     style={{
-            backgroundImage: `url(${bb})`, // ✅ correct
-          }}>
+    <div
+      className="fixed inset-0 bg-cover bg-center bg-no-repeat to-black overflow-auto"
+      style={{
+        backgroundImage: `url(${bb})`, // ✅ correct
+      }}
+    >
       {/* Main Grid Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 h-[calc(100vh)] gap-6 p-6 overflow-hidden">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 lg:h-screen gap-6 p-6 overflow-auto">
         {/* Left Panel - Input Controls */}
-        <div className="bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 shadow-2xl flex flex-col overflow-hidden">
-          <h3 className="text-xl font-semibold text-white mb-6 border-b border-gray-700/50 pb-3">
+        <div className="bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 shadow-2xl flex flex-col overflow-hidden max-h-full">
+          <h3 className="text-[1.3rem] font-semibold text-white mb-6  border-gray-700/50 pb-3">
             Input Configuration
           </h3>
 
@@ -410,7 +412,7 @@ export default function Dashboard() {
         </div>
 
         {/* Right Panel - Output Area */}
-        <div className="bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-7 shadow-2xl flex flex-col overflow-hidden pt-6">
+        <div className="bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-7 shadow-2xl flex flex-col overflow-hidden max-h-full">
           <div className="flex justify-between items-center mb-4 border-gray-700/50 pb-2">
             <h3 className="text-xl font-semibold text-white">Summary Output</h3>
 
