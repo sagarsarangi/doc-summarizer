@@ -106,16 +106,16 @@ export default function LandingPage() {
       setUser(currentUser);
 
       if (currentUser) {
-        const provider = currentUser?.app_metadata?.provider;
         const picture = currentUser?.user_metadata?.avatar_url;
 
-        if (provider === "google" && picture) {
-          setProfilePic(picture); // Google pfp
+        if (picture && picture.startsWith("http")) {
+          setProfilePic(picture); // Works for Google or any valid URL
         } else {
-          setProfilePic(logo); // Default pfp
+          setProfilePic(logo); // Default fallback
         }
       }
     });
+    
 
     return () => {
       subscription?.unsubscribe();
