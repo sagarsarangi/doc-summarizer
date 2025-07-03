@@ -79,6 +79,11 @@ export default function LandingPage() {
         const provider = currentUser?.app_metadata?.provider;
         const picture = currentUser?.user_metadata?.avatar_url;
 
+        console.log("Provider:", provider);
+        console.log("Avatar URL:", currentUser?.user_metadata?.avatar_url);
+        console.log("User metadata:", currentUser?.user_metadata);
+
+
         if (provider === "google" && picture) {
           setProfilePic(picture); // Use Google profile pic
         } else {
