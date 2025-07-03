@@ -184,7 +184,7 @@ export default function LandingPage() {
 
             <button
               onClick={handleLogout}
-              className="px-4 py-2 !bg-red-500 !hover:bg-red-600 rounded text-white transition-all duration-200"
+              className="px-4 py-2 !bg-red-500 hover:!bg-red-600 rounded text-white transition-all duration-200"
             >
               Logout
             </button>
