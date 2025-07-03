@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../utils/supabaseClient";
+import bb from "./cc.jpg";
 
 export default function ResetPassword() {
   const [newPassword, setNewPassword] = useState("");
@@ -18,7 +19,10 @@ export default function ResetPassword() {
   };
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-black to-gray-900 overflow-auto">
+    <div className="fixed inset-0 bg-cover bg-center bg-no-repeat overflow-auto"
+    style={{
+            backgroundImage: `url(${bb})`, // ✅ correct
+          }}>
       <div className="min-h-screen w-full flex items-center justify-center p-8">
         <div className="bg-gray-800 text-white p-12 rounded-xl w-full max-w-2xl shadow-xl">
           <h2 className="text-4xl font-bold mb-8 text-center">
