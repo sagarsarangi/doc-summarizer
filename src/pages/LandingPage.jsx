@@ -4,6 +4,8 @@ import { supabase } from "../utils/supabaseClient";
 import GoogleAuthButton from "../components/GoogleAuthButton";
 import logo from "./b.png";
 import Spline from "@splinetool/react-spline";
+import bb from "./cc.jpg"
+
 
 export default function LandingPage() {
   const [user, setUser] = useState(null);
@@ -111,7 +113,12 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white overflow-hidden">
+    <div
+      className="fixed inset-0 bg-cover bg-center bg-no-repeat text-white overflow-hidden"
+      style={{
+        backgroundImage: `url(${bb})`, // ✅ correct
+      }}
+    >
       {!showContent && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-950">
           <div className="animate-pulse text-2xl">Loading experience...</div>
@@ -120,15 +127,19 @@ export default function LandingPage() {
 
       {/* Header if user is logged in */}
       {user && showContent && (
-        <div className="fixed top-5 left-1/2 transform -translate-x-1/2 w-full max-w-[25rem] px-6 py-4 bg-gray-900 border border-gray-700 rounded-xl z-50 h-20">
+        <div
+          className="fixed top-5 left-1/2 transform -translate-x-1/2 w-full max-w-[25rem] px-6 py-4 
+                  bg-black/60 backdrop-blur-md border border-cyan-400 rounded-xl shadow-2xl shadow-black/50 
+                  z-50 h-20"
+        >
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-gray-300">
+            <div className="flex items-center gap-2 text-white">
               <img src={logo} alt="Smart Assistant Logo" className="w-8 h-8" />
-              <span>{user.email}</span>
+              <span className="text-lg">{user.email}</span>
             </div>
             <button
               onClick={handleLogout}
-              className="px-4 py-1 !bg-red-500 hover:!bg-red-500 rounded text-gray-100 hover:scale-106"
+              className="px-4 py-1 !bg-red-500 !hover:bg-red-600 transition-transform transform hover:scale-108 hover:!border-red-900 hover:!bg-red-600 rounded text-white"
             >
               Logout
             </button>
@@ -147,7 +158,7 @@ export default function LandingPage() {
         <div className="flex items-center justify-center min-h-[calc(100vh)] z-10">
           <div className="w-full max-w-6xl mx-auto text-center">
             <div className="mb-12">
-              <h1 className="text-9xl sm:text-5xl md:text-8xl lg:text-9xl font-bold tracking-tight bg-gradient-to-r from-gray-500 to-white bg-clip-text text-transparent">
+              <h1 className="text-xl sm:text-5xl md:text-8xl lg:text-9xl font-bold tracking-tight bg-gradient-to-r from-gray-200 to-white bg-clip-text text-transparent">
                 Smart Assistant
               </h1>
               <p className="mt-6 text-xl text-white font-light max-w-3xl mx-auto">
