@@ -11,6 +11,7 @@ import workerSrc from "pdfjs-dist/build/pdf.worker?url";
 import mammoth from "mammoth";
 import * as XLSX from "xlsx";
 import { useRef } from "react";
+import bb from "./cc.jpg";
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = workerSrc;
 
@@ -129,12 +130,14 @@ export default function Dashboard() {
   const isClearDisabled = summary.trim().length === 0;
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-gray-900 to-black overflow-hidden">
-
+    <div className="fixed inset-0 bg-cover bg-center bg-no-repeat to-black overflow-hidden"
+     style={{
+            backgroundImage: `url(${bb})`, // ✅ correct
+          }}>
       {/* Main Grid Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-2 h-[calc(100vh)] gap-6 p-6 overflow-hidden">
         {/* Left Panel - Input Controls */}
-        <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 shadow-2xl flex flex-col overflow-hidden">
+        <div className="bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 shadow-2xl flex flex-col overflow-hidden">
           <h3 className="text-xl font-semibold text-white mb-6 border-b border-gray-700/50 pb-3">
             Input Configuration
           </h3>
@@ -234,7 +237,7 @@ export default function Dashboard() {
                 value={customGuidelines}
                 onChange={(e) => setCustomGuidelines(e.target.value)}
                 rows="4"
-                className="w-full bg-gray-700/30 border border-gray-600 text-white px-4 py-3 rounded-xl focus:outline-none focus:ring-0 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none"
+                className="w-full bg-gray-700/30 border border-gray-600 text-white px-4 py-3 rounded-xl focus:outline-none focus:ring-0 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none h-21"
                 placeholder="Example: Use simpler language. Group by date. Add hashtags."
               />
             </div>
@@ -345,7 +348,7 @@ export default function Dashboard() {
           </div>
 
           {/* Action Buttons - Fixed at bottom */}
-          <div className="flex flex-col gap-4 pt-4 border-t border-gray-700/50">
+          <div className="flex gap-4 pt-4  border-gray-700/50">
             <button
               onClick={handleProcess}
               disabled={loading}
@@ -407,10 +410,10 @@ export default function Dashboard() {
         </div>
 
         {/* Right Panel - Output Area */}
-        <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 shadow-2xl flex flex-col overflow-hidden pt-6">
-          <div className="flex justify-between items-center mb-6 border-b border-gray-700/50 pb-2">
+        <div className="bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-7 shadow-2xl flex flex-col overflow-hidden pt-6">
+          <div className="flex justify-between items-center mb-4 border-gray-700/50 pb-2">
             <h3 className="text-xl font-semibold text-white">Summary Output</h3>
-            
+
             {summary && (
               <div className="flex items-center gap-3">
                 {/* Copy Button */}
