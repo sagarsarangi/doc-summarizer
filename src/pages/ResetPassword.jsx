@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../utils/supabaseClient";
-import bb from "./cc.jpg";
+import bb from "./z.jpg";
 
 export default function ResetPassword() {
   const [newPassword, setNewPassword] = useState("");

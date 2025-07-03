@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../utils/supabaseClient";
 import { useNavigate } from "react-router-dom";
-import bb from "./cc.jpg";
+import bb from "./z.jpg";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
