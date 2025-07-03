@@ -8,6 +8,8 @@ import bb from "./cc.jpg"
 
 
 export default function LandingPage() {
+  const [profilePic, setProfilePic] = useState(logo); // default is b.png
+
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const [loadedModels, setLoadedModels] = useState({
@@ -69,22 +71,47 @@ export default function LandingPage() {
       const {
         data: { session },
       } = await supabase.auth.getSession();
-      setUser(session?.user || null);
+
+      const currentUser = session?.user || null;
+      setUser(currentUser);
+
+      if (currentUser) {
+        const provider = currentUser?.app_metadata?.provider;
+        const picture = currentUser?.user_metadata?.avatar_url;
+
+        if (provider === "google" && picture) {
+          setProfilePic(picture); // Use Google profile pic
+        } else {
+          setProfilePic(logo); // Use default (b.png)
+        }
+      }
     };
 
     getSession();
 
-    // ✅ listener is an object, unsubscribe is a function returned separately
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user || null);
+      const currentUser = session?.user || null;
+      setUser(currentUser);
+
+      if (currentUser) {
+        const provider = currentUser?.app_metadata?.provider;
+        const picture = currentUser?.user_metadata?.avatar_url;
+
+        if (provider === "google" && picture) {
+          setProfilePic(picture); // Google pfp
+        } else {
+          setProfilePic(logo); // Default pfp
+        }
+      }
     });
 
     return () => {
-      subscription?.unsubscribe(); // ✅ correct
+      subscription?.unsubscribe();
     };
   }, []);
+  
 
   const handleLogout = async () => {
     const {
@@ -134,7 +161,7 @@ export default function LandingPage() {
         >
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-white whitespace-nowrap">
-              <img src={logo} alt="Smart Assistant Logo" className="w-8 h-8" />
+              <img src={profilePic} alt="User Profile" className="w-8 h-8 rounded-full object-cover" />
               <span className="text-lg">{user.email}</span>
             </div>
             <button
