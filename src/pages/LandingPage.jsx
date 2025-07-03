@@ -242,25 +242,27 @@ export default function LandingPage() {
               <div className="relative inline-flex justify-center bg-gray-950 px-4 text-gray-500 w-full"></div>
             </div>
 
-            <button
-              onClick={handleContinue}
-              className="group px-12 py-4 ease-in-out !bg-green-400 hover:scale-110 rounded-lg transition-all duration-300 text-lg font-medium inline-flex items-center gap-2 text-black"
-            >
-              Continue to App
-              <svg
-                className="w-5 h-5 transition-transform group-hover:translate-x-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+            {user && (
+              <button
+                onClick={handleContinue}
+                className="group px-12 py-4 ease-in-out !bg-green-400 hover:scale-110 rounded-lg transition-all duration-300 text-lg font-medium inline-flex items-center gap-2 text-black"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
+                Continue to App
+                <svg
+                  className="w-5 h-5 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            )}
 
             <div className="fixed inset-0 -z-10 overflow-hidden">
               <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-900/20 rounded-full blur-[100px] animate-float"></div>
